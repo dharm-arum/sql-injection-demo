@@ -7,17 +7,17 @@ require('dotenv').config();
 //
 const app = express();
 
-app.use(session({
+/*app.use(session({
 	secret: 'secret',
 	resave: true,
 	saveUninitialized: true
-}));
+}));*/
 
-/*app.use(session({
+app.use(session({
 	secret: process.env.SECRET,
 	resave: true,
 	saveUninitialized: true
-}));*/
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
