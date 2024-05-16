@@ -3,7 +3,8 @@ const cors = require('cors');
 const session = require('express-session');
 const mysql = require('mysql');
 const path = require('path');
-
+require('dotenv').config();
+//
 const app = express();
 
 app.use(session({
@@ -16,14 +17,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'static')));
 app.use(cors());
-
-const db = mysql.createConnection({
+//
+/*const db = mysql.createConnection({
     user: "root",
     host: "localhost",
     password: "",
     database: "injection"
+});*/
+//
+const db = mysql.createConnection({
+    user: process.env.DB_USER_NAME,
+    host: process.env.DB_HOST,
+    password: process.env.DB_PWD,
+    database: process.env.DB_NAME
 });
-
+//
 const router = express.Router();
 
 router.post("/getdetails", (req, res) => {
