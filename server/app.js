@@ -30,7 +30,7 @@ const db = mysql.createConnection({
     password: "",
     database: "injection"
 });
-//
+// ' or 1=1 --
 /*const db = mysql.createConnection({
     user: process.env.DB_USER_NAME,
     host: process.env.DB_HOST,
